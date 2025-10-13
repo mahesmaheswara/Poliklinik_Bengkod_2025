@@ -1,0 +1,13 @@
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up { animation: fadeInUp 0.9s ease-out forwards; }
+
+a {
+    transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+    transform: scale(1.05);
+}
