@@ -1,4 +1,6 @@
-<nav class="navbar navbar-expand navbar-white navbar-light">
+{{-- views/components/partials/header.blade.php --}}
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    {{-- Tombol "Hamburger" (Rel Door) untuk memicu slide sidebar --}}
     <ul class="navbar-nav">
         <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#" role="button">
@@ -13,6 +15,7 @@
         </li>
     </ul>
 
+    {{-- Navbar Kanan (Search, Fullscreen, dll.) --}}
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
             <a class="nav-link" data-widget="navbar-search" href="#" role="button">

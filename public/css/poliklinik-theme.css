@@ -1,0 +1,521 @@
+/*
+=========================================================
+|               POLIKLINIK THEME (KUSTOM CSS)             |
+=========================================================
+| File ini akan menimpa (override) style AdminLTE bawaan
+| untuk mencocokkan desain UI/UX baru Anda.
+---------------------------------------------------------
+*/
+
+/* 1. FONT & BODY (Sesuai Desain) */
+/* -------------------------------------------------- */
+
+/* Terapkan font utama 'Inter' ke body, sesuai desain */
+body.poliklinik-theme {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    background-color: #F4F6F8; /* Latar belakang Abu Lembut (Sesuai Desain) */
+}
+
+/* Terapkan font 'Poppins' untuk semua heading (Sesuai Desain) */
+h1, h2, h3, h4, h5, h6,
+.main-sidebar .brand-text,
+.content-header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600; /* SemiBold */
+}
+
+/* Gunakan font 'Roboto Mono' untuk data angka (Sesuai Desain) */
+.small-box h3,
+.table td:nth-child(1) /* Kolom ID di tabel */ {
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* 2. LAYOUT: SIDEBAR & NAVBAR (Sesuai Desain) */
+/* -------------------------------------------------- */
+
+/* Mengganti warna Sidebar Utama (Bawaan: Hitam) */
+.poliklinik-theme .main-sidebar {
+    background-color: #4B9CD3; /* Biru Profesional (Sesuai Desain) */
+}
+
+/* Mengganti warna teks link di sidebar */
+.poliklinik-theme .main-sidebar .nav-link,
+.poliklinik-theme .main-sidebar .brand-text,
+.poliklinik-theme .main-sidebar .user-panel .info a {
+    color: #FFFFFF; /* Putih Bersih */
+    opacity: 0.9;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+/* Mengganti warna link sidebar yang 'active' atau di-hover */
+.poliklinik-theme .main-sidebar .nav-pills .nav-link:not(.active):hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Efek hover putih transparan */
+}
+
+.poliklinik-theme .main-sidebar .nav-pills .nav-link.active {
+    background-color: #FFFFFF; /* Putih Bersih (Sesuai Desain) */
+    color: #2A5D8F; /* Teks Biru Tua (Sesuai Desain) */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Mengganti Navbar Atas (Bawaan: Putih) */
+/* Ini opsional, tapi disarankan agar tidak "nabrak" */
+.poliklinik-theme .main-header.navbar {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #DDE2E6; /* Batas Abu Halus */
+    box-shadow: none;
+}
+
+/* 3. KARTU & KONTEN (Sesuai Desain) */
+/* -------------------------------------------------- */
+
+/* Menerapkan style kartu kustom ke semua 'card' */
+.poliklinik-theme .card,
+.poliklinik-theme .small-box {
+    border: none; /* Hapus border bawaan */
+    border-radius: 16px; /* Sudut Rounded Besar (Sesuai Desain) */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08); /* Shadow Lembut (Sesuai Desain) */
+}
+
+/* Memberi jarak/spasi antar kartu */
+.poliklinik-theme .card,
+.poliklinik-theme .small-box {
+    margin-bottom: 24px; /* Spasi antar elemen (Sesuai Desain) */
+}
+
+/* Mengatur padding di dalam kartu */
+.poliklinik-theme .card-body {
+    padding: 24px; /* Spasi di dalam kartu (Sesuai Desain) */
+}
+
+/* Mengatur style header kartu */
+.poliklinik-theme .card-header {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #F4F6F8; /* Garis pemisah internal */
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    padding: 20px 24px;
+}
+
+/* 4. TOMBOL & FORM (Sesuai Desain) */
+/* -------------------------------------------------- */
+
+/* Tombol Aksen (Sesuai Desain) */
+.btn-primary {
+    background-color: #4B9CD3; /* Biru Profesional */
+    border-color: #4B9CD3;
+    border-radius: 12px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+.btn-primary:hover {
+    background-color: #2A5D8F; /* Biru Tua saat hover */
+    border-color: #2A5D8F;
+}
+
+/* Tombol Aksen Hijau (Sesuai Desain) */
+.btn-success {
+    background-color: #8FD19E; /* Hijau Tenang */
+    border-color: #8FD19E;
+    color: #2A5D8F; /* Teks gelap agar kontras */
+    border-radius: 12px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+.btn-success:hover {
+    background-color: #6fc27f;
+    border-color: #6fc27f;
+    color: #2A5D8F;
+}
+
+/* Style Input Form */
+.poliklinik-theme .form-control {
+    border-radius: 12px;
+    border: 1px solid #DDE2E6; /* Batas Abu Halus */
+}
+.poliklinik-theme .form-control:focus {
+    border-color: #4B9CD3; /* Border Biru saat fokus */
+    box-shadow: 0 0 0 2px rgba(75, 156, 211, 0.2);
+}
+
+/* 5. SIDEBAR COLLAPSE (Mode Ikon Saja) */
+/* -------------------------------------------------- */
+
+body.sidebar-collapse .nav-sidebar > .nav-item > .nav-link {
+    padding-left: 0.8rem; 
+    padding-right: 0.8rem; 
+}
+
+/* Hapus margin-right pada ikon agar padding link bekerja */
+body.sidebar-collapse .nav-sidebar > .nav-item > .nav-link .nav-icon {
+    margin-right: 0 !important; 
+    float: none; 
+}
+/* 6. TABEL DATA (Admin Panel) */
+/* -------------------------------------------------- */
+
+.poliklinik-theme .table {
+    border-color: #DDE2E6; /* Batas Abu Halus */
+    color: #2A5D8F; /* Teks Biru Tua */
+}
+
+/* Style Header Tabel */
+.poliklinik-theme .table thead th {
+    background-color: #F4F6F8; /* Latar Abu Lembut (Sesuai Desain) */
+    border-bottom: 2px solid #DDE2E6;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600; /* SemiBold */
+    color: #2A5D8F;
+    vertical-align: middle;
+    padding: 12px 16px; /* Spacing */
+}
+
+/* Style Baris Tabel */
+.poliklinik-theme .table tbody tr:hover {
+    background-color: rgba(75, 156, 211, 0.05); /* Efek hover biru sangat tipis */
+}
+
+.poliklinik-theme .table td {
+    border-top: 1px solid #F4F6F8; /* Garis pemisah baris tipis */
+    vertical-align: middle;
+    padding: 12px 16px; /* Spacing */
+}
+
+/* Tombol Aksi di dalam Tabel */
+.poliklinik-theme .table .btn {
+    margin-right: 5px; /* Jarak antar tombol */
+    border-radius: 8px; /* Sudut tombol lebih kecil */
+    padding: 4px 8px;   /* Ukuran tombol lebih kecil */
+    font-size: 0.85rem;
+}
+
+/* Badge (cth: untuk status atau nama Poli) */
+.poliklinik-theme .badge {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+/* 7. ALERT / NOTIFIKASI */
+/* -------------------------------------------------- */
+
+.poliklinik-theme .alert {
+    border-radius: 12px; /* Sudut rounded */
+    border-left: 5px solid; /* Aksen garis kiri */
+    padding: 1rem;
+    font-weight: 500;
+}
+
+.poliklinik-theme .alert-success {
+    border-left-color: #8FD19E; /* Hijau Tenang */
+    background-color: rgba(143, 209, 158, 0.1);
+    color: #2A5D8F;
+}
+
+.poliklinik-theme .alert-danger {
+    border-left-color: #E57373; /* Merah Lembut */
+    background-color: rgba(229, 115, 115, 0.1);
+    color: #b71c1c; /* Merah tua untuk teks */
+}
+
+/* Tombol close pada alert */
+.poliklinik-theme .alert .btn-close {
+    filter: invert(30%) sepia(20%) saturate(1000%) hue-rotate(180deg) brightness(80%) contrast(90%);
+}
+
+/* 8. KARTU STATISTIK KUSTOM (Dashboard) */
+/* -------------------------------------------------- */
+
+.custom-stat-card .card-body {
+    display: flex;
+    justify-content: space-between; /* Teks di kiri, Ikon di kanan */
+    align-items: center;
+    padding: 20px; /* Padding lebih kecil */
+}
+
+.custom-stat-card .stat-info {
+    line-height: 1.2;
+}
+
+.custom-stat-card .stat-number {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #2A5D8F; /* Teks Biru Tua */
+}
+
+.custom-stat-card .stat-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #6c757d; /* Abu-abu */
+    margin-bottom: 0;
+}
+
+.custom-stat-card .stat-icon {
+    font-size: 3rem; /* Ikon besar */
+    opacity: 0.3; /* Ikon transparan */
+}
+
+/* 8. KARTU STATISTIK KUSTOM (Dashboard) */
+/* -------------------------------------------------- */
+
+.custom-stat-card {
+    /* Menggunakan style kartu kustom yang sudah kita buat */
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    margin-bottom: 24px;
+    transition: all 0.3s ease-in-out;
+}
+
+.custom-stat-card:hover {
+    transform: translateY(-5px); /* Efek 'hover' sedikit terangkat */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.custom-stat-card .card-body {
+    display: flex;
+    justify-content: space-between; /* Teks di kiri, Ikon di kanan */
+    align-items: center;
+    padding: 20px; /* Padding lebih kecil */
+}
+
+.custom-stat-card .stat-info {
+    line-height: 1.2;
+}
+
+.custom-stat-card .stat-number {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #2A5D8F; /* Teks Biru Tua */
+}
+
+.custom-stat-card .stat-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #6c757d; /* Abu-abu */
+    margin-bottom: 0;
+}
+
+.custom-stat-card .stat-icon {
+    font-size: 3rem; /* Ikon besar */
+    opacity: 0.3; /* Ikon transparan */
+}
+
+/* 9. RESPONSIVE: TABEL MENJADI KARTU (MOBILE) */
+/* -------------------------------------------------- */
+
+/* Terapkan ini hanya pada layar kecil (di bawah 768px) */
+@media (max-width: 768px) {
+
+    /* Gunakan class 'table-responsive-stack'
+      agar tidak merusak tabel lain.
+    */
+    .table-responsive-stack {
+        width: 100%;
+    }
+
+    /* Sembunyikan header tabel di HP */
+    .table-responsive-stack thead {
+        display: none;
+    }
+
+    /* Ubah baris tabel menjadi kartu */
+    .table-responsive-stack tr {
+        display: block;
+        width: 100%;
+        background: #FFFFFF;
+        border-radius: 16px; /* Sudut rounded */
+        box-shadow: 0 2px 6px rgba(0,0,0,0.08); /* Shadow */
+        margin-bottom: 16px; /* Jarak antar kartu */
+        border: 1px solid #DDE2E6; /* Garis batas */
+    }
+    
+    .table-responsive-stack td {
+        display: block;
+        width: 100%;
+        text-align: right; /* Buat data di kanan */
+        padding: 12px 16px;
+        border: none;
+        border-bottom: 1px solid #F4F6F8; /* Garis pemisah antar data */
+        position: relative; /* Diperlukan untuk label */
+    }
+
+    /* Pindahkan tombol aksi ke atas */
+    .table-responsive-stack td:first-child {
+         border-top-left-radius: 16px;
+         border-top-right-radius: 16px;
+    }
+    .table-responsive-stack td:last-child {
+        border-bottom: none; /* Hapus garis di data terakhir */
+         border-bottom-left-radius: 16px;
+         border-bottom-right-radius: 16px;
+    }
+
+    /* Buat label di kiri (dari atribut data-label) */
+    .table-responsive-stack td:before {
+        content: attr(data-label); /* Ambil teks dari data-label */
+        position: absolute;
+        left: 16px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        color: #2A5D8F; /* Biru Tua */
+        text-align: left;
+    }
+}
+
+/* 10. FORMULIR (INPUT, SELECT, TEXTAREA) */
+/* -------------------------------------------------- */
+
+.poliklinik-theme .form-control,
+.poliklinik-theme .form-select {
+    border: 1px solid #DDE2E6; /* Batas Abu Halus */
+    border-radius: 12px; /* Sudut rounded besar */
+    padding: 0.75rem 1rem; /* Padding lebih lega */
+    height: auto; /* Biarkan padding yg mengatur tinggi */
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #2A5D8F; /* Teks Biru Tua */
+    transition: all 0.2s ease-in-out;
+}
+
+/* Style saat input/select di-klik (fokus) */
+.poliklinik-theme .form-control:focus,
+.poliklinik-theme .form-select:focus {
+    border-color: #4B9CD3; /* Border Biru Profesional */
+    box-shadow: 0 0 0 3px rgba(75, 156, 211, 0.2); /* Efek glow */
+    color: #2A5D8F;
+}
+
+/* Style untuk form-label */
+.poliklinik-theme .form-label {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600; /* SemiBold */
+    color: #2A5D8F;
+    margin-bottom: 0.5rem;
+}
+
+/* Style untuk input yang invalid (gagal validasi) */
+.poliklinik-theme .form-control.is-invalid,
+.poliklinik-theme .form-select.is-invalid {
+    border-color: #E57373; /* Merah Lembut */
+}
+.poliklinik-theme .form-control.is-invalid:focus,
+.poliklinik-theme .form-select.is-invalid:focus {
+    box-shadow: 0 0 0 3px rgba(229, 115, 115, 0.2); /* Efek glow merah */
+}
+
+/* Style untuk pesan error di bawah input */
+.poliklinik-theme .invalid-feedback {
+    font-weight: 500;
+}
+
+/* 11. TOMBOL AKSI (EDIT & HAPUS) */
+/* -------------------------------------------------- */
+
+/* Style untuk tombol Kuning (Warning / Edit) */
+.btn-warning {
+    background-color: #FFB74D; /* Oranye Pastel */
+    border-color: #FFB74D;
+    color: #424242; /* Teks lebih gelap agar terbaca */
+    border-radius: 12px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+.btn-warning:hover {
+    background-color: #ffa726;
+    border-color: #ffa726;
+    color: #424242;
+}
+
+/* Style untuk tombol Merah (Danger / Hapus) */
+.btn-danger {
+    background-color: #E57373; /* Merah Lembut */
+    border-color: #E57373;
+    color: #FFFFFF; /* Teks putih */
+    border-radius: 12px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+.btn-danger:hover {
+    background-color: #ef5350;
+    border-color: #ef5350;
+    color: #FFFFFF;
+}
+
+/* 12. HALAMAN LOGIN & REGISTER (DESAIN BARU) */
+/* -------------------------------------------------- */
+
+/* Ganti latar belakang halaman login/register */
+.poliklinik-theme.login-page,
+.poliklinik-theme.register-page {
+    background-color: #F4F6F8; /* Latar Abu Lembut */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Wrapper untuk kartu form */
+.auth-wrapper {
+    width: 100%;
+    max-width: 450px; /* Lebar form */
+}
+
+/* Style untuk logo/judul di atas kartu */
+.auth-logo {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2A5D8F; /* Biru Tua */
+}
+.auth-logo b {
+    color: #4B9CD3; /* Biru Profesional */
+}
+
+/* Kartu form kustom (menggantikan .card bawaan) */
+.auth-card {
+    background-color: #FFFFFF;
+    border-radius: 16px; /* Sudut rounded besar */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Shadow lembut */
+    padding: 2.5rem; /* Spasi lega */
+    border: none;
+}
+
+/* Judul di dalam kartu */
+.auth-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #2A5D8F;
+    margin-bottom: 2rem;
+}
+
+/* Link "Sudah punya akun?" */
+.auth-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+}
+
+/* Style untuk alert error */
+.auth-alert {
+    background-color: rgba(229, 115, 115, 0.1);
+    border: 1px solid rgba(229, 115, 115, 0.5);
+    color: #b71c1c;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+.auth-alert ul {
+    margin-bottom: 0;
+    padding-left: 1.2rem;
+}
