@@ -1,0 +1,43 @@
+/* 2. LAYOUT: SIDEBAR & NAVBAR (Modern Putih) */
+/* -------------------------------------------------- */
+.poliklinik-theme .main-sidebar {
+    background-color: #FFFFFF !important;
+    border-right: 1px solid #E5E7EB;
+}
+.poliklinik-theme .main-sidebar .nav-link,
+.poliklinik-theme .main-sidebar .user-panel .info a {
+    color: #4B5563 !important; /* Teks Abu Tua */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+.poliklinik-theme .main-sidebar .brand-text {
+    color: #2563EB !important; /* Teks Biru */
+}
+.poliklinik-theme .brand-link {
+    border-bottom: 1px solid #F3F4F6 !important;
+}
+.poliklinik-theme .main-sidebar .nav-pills .nav-link:not(.active):hover {
+    background-color: #EFF6FF !important;
+    color: #2563EB !important;
+}
+.poliklinik-theme .main-sidebar .nav-pills .nav-link.active {
+    background-color: #2563EB !important;
+    color: #FFFFFF !important; /* Teks Putih HANYA saat aktif */
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+}
+.poliklinik-theme .main-header.navbar {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #DDE2E6;
+    box-shadow: none;
+}
+
+/* 5. SIDEBAR COLLAPSE (Mode Ikon Saja) */
+/* -------------------------------------------------- */
+body.sidebar-collapse .nav-sidebar > .nav-item > .nav-link {
+    padding-left: 0.8rem; 
+    padding-right: 0.8rem; 
+}
+body.sidebar-collapse .nav-sidebar > .nav-item > .nav-link .nav-icon {
+    margin-right: 0 !important; 
+    float: none; 
+}

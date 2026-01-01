@@ -1,106 +1,108 @@
-{{-- File: resources/views/admin/dokter/index.blade.php --}}
-<x-layouts.app title="Data Dokter">
-    <div class="container-fluid px-4 mt-4">
-        {{-- DIUBAH: Seluruh konten dibungkus 'card' agar konsisten --}}
-        <div class="card custom-card">
-            <div class="card-header">
-                <h3 class="card-title" style="font-family: 'Poppins', sans-serif; font-weight: 600;">Data Dokter</h3>
-                {{-- Tombol 'Tambah' dipindah ke kanan atas card --}}
-                <div class="card-tools">
-                    <a href="{{ route('dokter.create') }}" class="btn btn-success btn-sm"> 
-                        <i class="fas fa-plus"></i> Tambah Dokter
-                    </a>
-                </div>
-            </div>
-            <div class="card-body">
+@extends('components.layouts.app')
 
-                {{-- Alert flash message --}}
-                @if (session('message'))
-                    <div class="alert alert-{{ session('type', 'success') }} alert-dismissible fade show" role="alert">
-                        {{ session('message') }}
-                        {{-- Tombol close standar Bootstrap 5 --}}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+@section('header')
+    Data Master Dokter
+@endsection
+
+@section('content')
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+
+            {{-- Card Utama --}}
+            <div class="card border-0 shadow-sm">
+                
+                {{-- CARD HEADER: Judul & Group Tombol --}}
+                <div class="card-header bg-white border-0 py-4 d-flex justify-content-between align-items-center">
+                    <h3 class="card-title font-weight-bold text-dark mb-0">
+                        <i class="fas fa-user-md text-primary mr-2"></i> Daftar Dokter
+                    </h3>
+                    
+                    {{-- Group Tombol Aksi --}}
+                    <div>
+                        {{-- 1. Tombol Cetak PDF --}}
+                        <a href="{{ route('dokter.cetak') }}" target="_blank" class="btn btn-secondary shadow-sm rounded-pill mr-2">
+                            <i class="fas fa-print mr-2"></i> Cetak PDF
+                        </a>
+
+                        {{-- 2. Tombol Tambah Dokter --}}
+                        <a href="{{ route('dokter.create') }}" class="btn btn-primary shadow-sm rounded-pill">
+                            <i class="fas fa-plus mr-2"></i> Tambah Dokter
+                        </a>
                     </div>
-                @endif
-
-                {{-- DIUBAH: div table-responsive tetap ada untuk scroll horizontal jika data terlalu lebar di desktop --}}
-                <div class="table-responsive">
-                    {{-- DIUBAH: Tambah class 'table-responsive-stack' --}}
-                    <table class="table table-bordered table-hover table-responsive-stack">
-                        <thead class="thead-light">
-                            <tr>
-                                <th>#</th>
-                                <th>Nama Dokter</th>
-                                <th>Email</th>
-                                <th>No. KTP</th>
-                                <th>No. HP</th>
-                                <th>Alamat</th>
-                                <th>Poli</th>
-                                <th style="width: 150px;">Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @forelse ($dokters as $dokter)
-                                <tr>
-                                    {{-- DIUBAH: Tambah data-label --}}
-                                    <td data-label="#">{{ $loop->iteration }}</td>
-                                    <td data-label="Nama Dokter">{{ $dokter->nama }}</td>
-                                    <td data-label="Email">{{ $dokter->email }}</td>
-                                    <td data-label="No. KTP">{{ $dokter->no_ktp }}</td>
-                                    <td data-label="No. HP">{{ $dokter->no_hp }}</td>
-                                    <td data-label="Alamat">{{ $dokter->alamat }}</td>
-                                    <td data-label="Poli">
-                                        <span class="badge bg-info">
-                                            {{ $dokter->poli->nama_poli ?? 'Belum Dipilih' }}
-                                        </span>
-                                    </td>
-                                    <td data-label="Aksi">
-                                        {{-- DIUBAH: Ganti nama route ke 'dokters.edit' --}}
-                                        <a href="{{ route('dokter.edit', $dokter->id) }}" class="btn btn-sm btn-warning">
-                                            <i class="fas fa-edit"></i> Edit
-                                        </a>
-                                        {{-- DIUBAH: Ganti nama route ke 'dokters.destroy' --}}
-                                        <form action="{{ route('dokter.destroy', $dokter->id) }}" method="POST" style="display: inline-block;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus dokter ini ?')">
-                                                <i class="fas fa-trash"></i> Hapus
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @empty
-                                <tr>
-                                    <td class="text-center" colspan="8">
-                                        Belum ada Dokter
-                                    </td>
-                                </tr>
-                            @endforelse
-                        </tbody>
-                    </table>
                 </div>
-            </div> {{-- /.card-body --}}
-        </div> {{-- /.card --}}
+                
+                {{-- CARD BODY: Tabel --}}
+                <div class="card-body">
+                    <div class="table-responsive table-responsive-stack">
+                        <table class="table table-hover align-middle">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama Dokter</th>
+                                    <th>Poli</th>
+                                    <th>No. HP</th>
+                                    <th>Alamat</th>
+                                    <th class="text-center" style="width: 150px;">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse ($dokters as $index => $dokter)
+                                    <tr>
+                                        <td data-label="No">{{ $loop->iteration }}</td>
+                                        
+                                        <td data-label="Nama Dokter">
+                                            <span class="font-weight-bold text-dark">{{ $dokter->nama }}</span>
+                                            <br>
+                                            <small class="text-muted">{{ $dokter->email }}</small>
+                                        </td>
+                                        
+                                        <td data-label="Poli">
+                                            <span class="badge badge-primary px-3 py-2 rounded-pill">
+                                                {{ $dokter->poli->nama_poli ?? 'N/A' }}
+                                            </span>
+                                        </td>
+                                        
+                                        <td data-label="No. HP">{{ $dokter->no_hp }}</td>
+                                        
+                                        <td data-label="Alamat" class="text-muted small">
+                                            {{ Str::limit($dokter->alamat, 40) }}
+                                        </td>
+                                        
+                                        <td data-label="Aksi" class="text-center">
+                                            <form action="{{ route('dokter.destroy', $dokter->id) }}" method="POST" class="d-inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                
+                                                {{-- Tombol Edit --}}
+                                                <a href="{{ route('dokter.edit', $dokter->id) }}" class="btn btn-sm btn-warning rounded-circle shadow-sm mr-1" title="Edit">
+                                                    <i class="fas fa-pen text-white"></i>
+                                                </a>
+                                                
+                                                {{-- Tombol Hapus --}}
+                                                <button type="submit" class="btn btn-sm btn-danger rounded-circle shadow-sm" 
+                                                        title="Hapus"
+                                                        onclick="return confirm('Yakin ingin menghapus dokter {{ $dokter->nama }}?')">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="6" class="text-center py-5 text-muted">
+                                            <i class="fas fa-user-md fa-3x mb-3 text-gray-300"></i>
+                                            <p>Belum ada data dokter.</p>
+                                        </td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
+                </div> {{-- End Card Body --}}
+                
+            </div>
+        </div>
     </div>
-
-    {{-- Script untuk auto-close alert (didorong ke layout utama) --}}
-    @push('scripts')
-    <script>
-        setTimeout(() => {
-            const alertNode = document.querySelector('.alert');
-            if (alertNode) {
-                // Gunakan instance Bootstrap jika ada
-                if (typeof bootstrap !== 'undefined') {
-                    const alertInstance = bootstrap.Alert.getInstance(alertNode);
-                    if (alertInstance) {
-                        alertInstance.close();
-                    }
-                } else {
-                    // Fallback jika Bootstrap JS tidak ada
-                    alertNode.style.display = 'none';
-                }
-            }
-        }, 3000); // 3 detik
-    </script>
-    @endpush
-</x-layouts.app>
+</div>
+@endsection

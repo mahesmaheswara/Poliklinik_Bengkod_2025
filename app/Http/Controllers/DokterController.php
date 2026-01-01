@@ -122,4 +122,10 @@ class DokterController extends Controller
             ->with('message', 'Data Dokter Berhasil dihapus')
             ->with('type', 'success');
     }
+
+    public function cetak()
+    {
+        $dokters = \App\Models\User::where('role', 'dokter')->with('poli')->get();
+        return view('admin.dokter.cetak', compact('dokters'));
+    }
 }

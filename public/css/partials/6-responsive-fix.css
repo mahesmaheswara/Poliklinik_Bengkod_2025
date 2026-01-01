@@ -1,0 +1,78 @@
+/* 9. RESPONSIVE: TABEL MENJADI KARTU (MOBILE) */
+/* -------------------------------------------------- */
+@media (max-width: 768px) {
+    .table-responsive-stack { width: 100%; }
+    .table-responsive-stack thead { display: none; }
+    .table-responsive-stack tr {
+        display: block;
+        width: 100%;
+        background: #FFFFFF;
+        border-radius: 16px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        margin-bottom: 16px;
+        border: 1px solid #DDE2E6;
+    }
+    .table-responsive-stack td {
+        display: block;
+        width: 100%;
+        text-align: right;
+        padding: 12px 16px;
+        border: none;
+        border-bottom: 1px solid #F4F6F8;
+        position: relative;
+    }
+    .table-responsive-stack td:first-child {
+         border-top-left-radius: 16px;
+         border-top-right-radius: 16px;
+    }
+    .table-responsive-stack td:last-child {
+        border-bottom: none;
+         border-bottom-left-radius: 16px;
+         border-bottom-right-radius: 16px;
+    }
+    .table-responsive-stack td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 16px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        color: #2A5D8F;
+        text-align: left;
+    }
+}
+
+/* =================================================
+   REVISI FIX Z-INDEX & OVERLAY
+   =================================================
+*/
+
+/* FIX: MENGHILANGKAN LAYAR GELAP (OVERLAY) */
+.sidebar-overlay, #sidebar-overlay {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    z-index: -9999 !important;
+    pointer-events: none !important;
+}
+
+/* FIX: Z-Index Nabrak (Dropdown di belakang konten) */
+.content-wrapper, .main-footer {
+    position: relative !important;
+    z-index: 900 !important; /* Turunkan z-index konten */
+}
+.main-header {
+    position: relative !important;
+    z-index: 1000 !important; /* Header HARUS di atas konten */
+}
+.main-sidebar {
+    z-index: 1100 !important; /* Sidebar paling atas */
+}
+/* Dropdown AdminLTE biasanya punya z-index 1050, 
+   jadi header 1000 & content 900 sudah aman. */
+
+/* FIX: User panel nabrak menu di sidebar (Gambar Admin) */
+.user-panel {
+    margin-bottom: 1rem !important; /* Beri jarak 1 rem di bawah user panel */
+    padding-bottom: 1rem !important;
+    border-bottom: 1px solid #f3f4f6; /* Garis pemisah */
+}

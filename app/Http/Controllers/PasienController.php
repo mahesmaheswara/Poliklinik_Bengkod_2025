@@ -10,6 +10,7 @@ class PasienController extends Controller
 {
     public function index()
     {
+        // Ambil hanya user dengan role pasien, beserta data poli (jika ada)
         $pasiens = User::where('role', 'pasien')->with('poli')->get();
         return view('admin.pasien.index', compact('pasiens'));
     }
@@ -21,6 +22,7 @@ class PasienController extends Controller
 
     public function store(Request $request)
     {
+        // 1. Validasi Input
         $request->validate([
             'nama' => 'required|string|max:255',
             'alamat' => 'required|string',
@@ -30,17 +32,31 @@ class PasienController extends Controller
             'password' => 'required|string|min:6',
         ]);
 
+        // 2. LOGIC GENERATE NO. RM (PERBAIKAN UTAMA)
+        // Format: YYYYMM-XXX (Contoh: 202512-001)
+        $bulanTahun = date('Ym');
+        
+        // Hitung jumlah pasien yang mendaftar bulan ini untuk urutan
+        $urutan = User::where('no_rm', 'like', $bulanTahun . '-%')->count() + 1;
+        
+        // Gabungkan menjadi No RM lengkap
+        $no_rm = $bulanTahun . '-' . str_pad($urutan, 3, '0', STR_PAD_LEFT);
+
+        // 3. Simpan Data ke Database
         User::create([
             'nama' => $request->nama,
             'alamat' => $request->alamat,
             'no_ktp' => $request->no_ktp,
             'no_hp' => $request->no_hp,
+            'no_rm' => $no_rm, // <-- Masukkan No RM yang sudah digenerate
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role' => 'pasien'
         ]);
 
-        return redirect()->route('pasien.index')->with('message', 'Data Pasien berhasil di Tambah')->with('type', 'success');
+        return redirect()->route('pasien.index')
+            ->with('message', 'Data Pasien berhasil ditambah. No RM: ' . $no_rm)
+            ->with('type', 'success');
     }
 
     public function edit(User $pasien)
@@ -84,5 +100,11 @@ class PasienController extends Controller
         return redirect()->route('pasien.index')
             ->with('message', 'Data Pasien Berhasil Di Hapus')
             ->with('type', 'success');
+    }
+
+    public function cetak()
+    {
+        $pasiens = \App\Models\User::where('role', 'pasien')->get();
+        return view('admin.pasien.cetak', compact('pasiens'));
     }
 }

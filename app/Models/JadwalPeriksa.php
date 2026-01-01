@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User; // Tambahan: Pastikan User di-import
+use App\Models\DaftarPoli; // Tambahan: Pastikan DaftarPoli di-import
 
 class JadwalPeriksa extends Model
 {
@@ -12,7 +14,9 @@ class JadwalPeriksa extends Model
         'id_dokter',
         'hari',
         'jam_mulai',
-        'jam_selesai'
+        'jam_selesai',
+        'status' // <-- INI ADALAH PERBAIKANNYA
+                 // Tanpa ini, status 'aktif'/'non-aktif' akan diabaikan
     ];
 
     public function dokter(){

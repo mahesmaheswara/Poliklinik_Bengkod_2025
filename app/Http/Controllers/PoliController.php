@@ -55,4 +55,10 @@ class PoliController extends Controller
         $poli->delete();
         return redirect()->route('polis.index')->with('success', 'Polis Berhasil di hapus !');
     }
+
+    public function cetak()
+    {
+        $polis = \App\Models\Poli::all();
+        return view('admin.polis.cetak', compact('polis'));
+    }
 }

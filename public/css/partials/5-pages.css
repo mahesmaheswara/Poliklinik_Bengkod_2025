@@ -1,0 +1,92 @@
+/* 8. KARTU STATISTIK KUSTOM (Dashboard) */
+/* -------------------------------------------------- */
+.custom-stat-card {
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    margin-bottom: 24px;
+    transition: all 0.3s ease-in-out;
+}
+.custom-stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.custom-stat-card .card-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+.custom-stat-card .stat-info {
+    line-height: 1.2;
+}
+.custom-stat-card .stat-number {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #2A5D8F;
+}
+.custom-stat-card .stat-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #6c757d;
+    margin-bottom: 0;
+}
+.custom-stat-card .stat-icon {
+    font-size: 3rem;
+    opacity: 0.3;
+}
+
+/* 12. HALAMAN LOGIN & REGISTER */
+/* -------------------------------------------------- */
+.poliklinik-theme.login-page,
+.poliklinik-theme.register-page {
+    background-color: #F4F6F8;
+    justify-content: center;
+    align-items: center;
+}
+.auth-wrapper {
+    width: 100%;
+    max-width: 450px;
+}
+.auth-logo {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2A5D8F;
+}
+.auth-logo b {
+    color: #4B9CD3;
+}
+.auth-card {
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 2.5rem;
+    border: none;
+}
+.auth-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #2A5D8F;
+    margin-bottom: 2rem;
+}
+.auth-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+}
+.auth-alert {
+    background-color: rgba(229, 115, 115, 0.1);
+    border: 1px solid rgba(229, 115, 115, 0.5);
+    color: #b71c1c;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}

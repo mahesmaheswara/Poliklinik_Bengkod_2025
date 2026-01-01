@@ -6,9 +6,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Poli; // <-- WAJIB ADA: Import model Poli
+use App\Models\JadwalPeriksa; // <-- WAJIB ADA: Import model JadwalPeriksa
 
 class User extends Authenticatable
 {
+    // Hapus HasApiTokens untuk menghindari error
+    use HasFactory, Notifiable;
+
     protected $fillable = [
         'nama',
         'alamat',
@@ -34,11 +39,25 @@ class User extends Authenticatable
         ];
     }
 
-    public function poli(){
+    // ==========================================================
+    // INI ADALAH FUNGSI YANG HILANG (PENYEBAB JADWAL KOSONG)
+    // ==========================================================
+    /**
+     * Relasi untuk Dokter ke Poli.
+     */
+    public function poli()
+    {
+        // Dokter 'belongsTo' (memiliki satu) Poli
+        // Ini menghubungkan 'id_poli' di tabel 'users' ke 'id' di tabel 'poli'
         return $this->belongsTo(Poli::class, 'id_poli');
     }
+    // ==========================================================
 
-    public function jadwalPeriksas(){
+    /**
+     * Relasi untuk Dokter ke Jadwal
+     */
+    public function jadwalPeriksas()
+    {
         return $this->hasMany(JadwalPeriksa::class, 'id_dokter');
     }
 }

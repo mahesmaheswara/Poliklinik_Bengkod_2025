@@ -1,0 +1,92 @@
+/* 3. KARTU & KONTEN */
+/* -------------------------------------------------- */
+.poliklinik-theme .card,
+.poliklinik-theme .small-box {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    margin-bottom: 24px;
+}
+.poliklinik-theme .card-body {
+    padding: 24px;
+}
+.poliklinik-theme .card-header {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #F4F6F8;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    padding: 20px 24px;
+}
+
+/* 4. TOMBOL UTAMA */
+/* -------------------------------------------------- */
+.btn-primary {
+    background-color: #4B9CD3;
+    border-color: #4B9CD3;
+    border-radius: 12px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+.btn-primary:hover {
+    background-color: #2A5D8F;
+    border-color: #2A5D8F;
+}
+.btn-success {
+    background-color: #8FD19E;
+    border-color: #8FD19E;
+    color: #2A5D8F;
+    border-radius: 12px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+.btn-success:hover {
+    background-color: #6fc27f;
+    border-color: #6fc27f;
+    color: #2A5D8F;
+}
+
+/* 11. TOMBOL AKSI (EDIT & HAPUS) */
+/* -------------------------------------------------- */
+.btn-warning {
+    background-color: #FFB74D;
+    border-color: #FFB74D;
+    color: #424242;
+    border-radius: 12px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+.btn-warning:hover {
+    background-color: #ffa726;
+    border-color: #ffa726;
+}
+.btn-danger {
+    background-color: #E57373;
+    border-color: #E57373;
+    color: #FFFFFF;
+    border-radius: 12px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+.btn-danger:hover {
+    background-color: #ef5350;
+    border-color: #ef5350;
+}
+
+/* 7. ALERT / NOTIFIKASI */
+/* -------------------------------------------------- */
+.poliklinik-theme .alert {
+    border-radius: 12px;
+    border-left: 5px solid;
+    padding: 1rem;
+    font-weight: 500;
+}
+.poliklinik-theme .alert-success {
+    border-left-color: #8FD19E;
+    background-color: rgba(143, 209, 158, 0.1);
+    color: #2A5D8F;
+}
+.poliklinik-theme .alert-danger {
+    border-left-color: #E57373;
+    background-color: rgba(229, 115, 115, 0.1);
+    color: #b71c1c;
+}
